@@ -21,25 +21,23 @@ ASPECTOS TÉCNICOS:
 - Design compreensível e transparente.
 - Possibilidade de alterar as variáveis (sem perder o padrão de fábrica!).
 ____________________________________________________________________________
+Abertura do programa:
+O usuário abre o programa e é recebido com uma mensagem de boas-vindas estilizada. Logo abaixo, são apresentadas as opções:
 
-Sobre a interface:
-
-1. Abre o programa, é recebido com uma mensagem de boas vindas estilizada e logo abaixo é apresentado as opções:
-
-- Unidades de medidas.
+- Unidades de medida.
 - Financeiro.
 
-* Cada uma destas opções terá uma tela diferente uma da outra.
+Nota: Cada uma dessas opções terá uma tela totalmente diferente da outra.
 
-2. Unidade de medida:
-
+1. Unidades de medida:
 - Aparecerá um menu perguntando qual é a unidade a ser convertida.
-- Cada unidade haverá uma lista de possibilidade a serem resolvidas.
-- Ainda estou pensando na melhor forma de fazer isto, mas acho que deixarei uma lista de "qual para quem" onde o usuário fará uma entrada dupla para escolher o mesmo.
+- Para cada unidade, haverá uma lista de possibilidades a serem resolvidas.
+
+Ainda estou pensando na melhor forma de fazer isso, mas acho que deixarei uma lista de "de qual para qual", onde o usuário fará uma entrada dupla para escolher as opções.
+
 - Após a escolha, o usuário poderá fornecer o valor a ser convertido.
-- O usuário só sai do menu de unidade de media se DESEJAR sair.
+- O usuário só sai do menu de unidades de medida se desejar sair.
 
-3. Financeiro:
-
-- Aparecerá um menu perguntando qual é a moeda a ser convertida e para qual.
-- A conversão acontecerá em tempo real com o valor da moeda.
+2. Financeiro:
+- Aparecerá um menu perguntando qual é a moeda de origem e para qual moeda deseja converter.
+- A conversão acontecerá em tempo real com o valor atualizado da moeda.

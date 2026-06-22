@@ -1,11 +1,11 @@
 CONVERSOR DE UNIDADES GERAIS:
 - MÉTRICO
 - MONETÁRIO
-----------------------------------------------------------------------------
+____________________________________________________________________________
 MÉTRICO:
 
 O conversor métrico terá a possibilidade de converter a maioria (se não todas) as unidades de medida mais comuns.
-----------------------------------------------------------------------------
+____________________________________________________________________________
 MONETÁRIO:
 
 Será capaz de converter qualquer valor monetário para qualquer outra moeda (com atualização em tempo real).

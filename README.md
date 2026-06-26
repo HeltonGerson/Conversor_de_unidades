@@ -1,43 +1,55 @@
-CONVERSOR DE UNIDADES GERAIS:
-- MÉTRICO
-- MONETÁRIO
-____________________________________________________________________________
-MÉTRICO:
+# 🔄 Conversor de Unidades Gerais
 
-O conversor métrico terá a possibilidade de converter a maioria (se não todas) as unidades de medida mais comuns.
-____________________________________________________________________________
-MONETÁRIO:
+Uma ferramenta de Interface de Linha de Comando projetada para realizar conversões métricas e monetárias de forma rápida e precisa.
 
-Será capaz de converter qualquer valor monetário para qualquer outra moeda (com atualização em tempo real).
-___________________________________________________________________________
-ASPECTOS GERAIS:
+---
 
-- Vai ser um CLI (Interface de Linha de Comando).
-- Focado na experiência do usuário (UX).
-- Interface intuitiva e autodidata.
-____________________________________________________________________________
-ASPECTOS TÉCNICOS:
-- Tratamento de erros robusto.
-- Design compreensível e transparente.
-- Possibilidade de alterar as variáveis (sem perder o padrão de fábrica!).
-____________________________________________________________________________
-Abertura do programa:
-O usuário abre o programa e é recebido com uma mensagem de boas-vindas estilizada. Logo abaixo, são apresentadas as opções:
+## Funcionalidades Principais
 
-- Unidades de medida.
-- Financeiro.
+### 1. Módulo Métrico
+O conversor métrico oferece suporte para a grande maioria das unidades de medida mais comuns do dia a dia.
+* **Fluxo de Operação:** Menu interativo baseado em entrada dupla ("de X para Y").
+* **Flexibilidade:** Permite realizar múltiplas conversões consecutivas sem fechar o módulo.
+* **Persistência:** O usuário permanece no menu de unidades até que decida explicitamente retornar ao menu principal.
 
-Nota: Cada uma dessas opções terá uma tela totalmente diferente da outra.
+### 2. Módulo Monetário
+Conversão dinâmica de valores entre diferentes moedas globais.
+* **Tempo Real:** Atualização automática das taxas de câmbio para garantir precisão financeira.
+* **Praticidade:** Interface direta que solicita a moeda de origem, a moeda de destino e o valor.
 
-1. Unidades de medida:
-- Aparecerá um menu perguntando qual é a unidade a ser convertida.
-- Para cada unidade, haverá uma lista de possibilidades a serem resolvidas.
+---
 
-Ainda estou pensando na melhor forma de fazer isso, mas acho que deixarei uma lista de "de qual para qual", onde o usuário fará uma entrada dupla para escolher as opções.
+## Experiência do Usuário & Aspectos Gerais
 
-- Após a escolha, o usuário poderá fornecer o valor a ser convertido.
-- O usuário só sai do menu de unidades de medida se desejar sair.
+* **Interface CLI Intuitiva:** Design autodidata pensado para que o usuário saiba exatamente o que fazer, mesmo sem ler um manual.
+* **Fluxo de Navegação Dinâmico:** Telas personalizadas e totalmente distintas para cada módulo.
+* **Mensagem de Boas-Vindas:** Abertura estilizada que organiza visualmente o ecossistema do programa logo no primeiro contato.
 
-2. Financeiro:
-- Aparecerá um menu perguntando qual é a moeda de origem e para qual moeda deseja converter.
-- A conversão acontecerá em tempo real com o valor atualizado da moeda.
+---
+
+## Aspectos Técnicos
+
+* **Tratamento de Erros Robusto:** Sistema preparado para lidar com entradas inválidas ou falhas de conexão sem quebrar a execução.
+* **Customização Segura:** Permite alterar variáveis do sistema de forma personalizada, com garantia de recuperação das configurações padrão de fábrica a qualquer momento.
+
+---
+
+## Fluxo de Navegação
+
+```text
+[ Início do Programa ]
+       │
+       └──> 🎨 Tela de Boas-Vindas
+               │
+               ├──> 🏢 [Opção 1] Unidades de Medida
+               │       │
+               │       ├──> Seleção da Unidade Base
+               │       ├──> Entrada Dupla ("De" -> "Para")
+               │       ├──> Inserção do Valor -> Resultado
+               │       └──> Loop (Permanece até solicitar saída)
+               │
+               └──> 💵 [Opção 2] Financeiro
+                       │
+                       ├──> Moeda de Origem
+                       ├──> Moeda de Destino
+                       └──> Consulta & Conversão em Tempo Real

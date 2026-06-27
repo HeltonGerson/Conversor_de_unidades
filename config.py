@@ -31,3 +31,11 @@ unidades_tempo = {
     "m": 60,
     "s": 3600,
 }
+
+unidade_monetaria = {
+    # moeda base: dólar
+    "dólar": 1.00,
+    "real": 0.19,
+    "Euro": 1.13,
+    "yuan": 0.14,
+}

@@ -7,7 +7,7 @@ def f_para_c(f):
 
 
 def c_para_k(c):
-    return c + 273, 15
+    return c + 273.15
 
 
 def k_para_c(k):

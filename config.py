@@ -27,9 +27,10 @@ unidade_temperatura = {
 }
 unidades_tempo = {
     # unidade base: horas
+    "dias": 24,
     "hr": 1,
-    "m": 60,
-    "s": 3600,
+    "m": 1 / 60,
+    "s": 1 / 3600,
 }
 
 unidade_monetaria = {

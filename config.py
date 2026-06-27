@@ -4,7 +4,7 @@ unidades_comprimento = {
     # Unidade base: metros
     "km": 1000.0,
     "m": 1.0,
-    "cm:": 0.01,
+    "cm": 0.01,
     "mm": 0.001,
 }
 unidade_massa = {

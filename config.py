@@ -1,3 +1,5 @@
+import engine
+
 unidades_comprimento = {
     # Unidade base: metros
     "km": 1000.0,
@@ -13,10 +15,15 @@ unidade_massa = {
     "mg": 0.000001,
 }
 unidade_temperatura = {
-    # Unidade base: Kelvin.
-    "C": 1.0,
-    "K": 274.15,
-    "F": 33.8,
+    # C e F
+    ("C", "F"): engine.c_para_f,
+    ("F", "C"): engine.f_para_c,
+    # K e C
+    ("C", "K"): engine.c_para_k,
+    ("K", "C"): engine.k_para_c,
+    # F e K
+    ("F", "K"): engine.f_para_k,
+    ("K", "F"): engine.k_para_f,
 }
 unidades_tempo = {
     # unidade base: horas

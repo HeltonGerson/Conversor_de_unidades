@@ -19,7 +19,7 @@ def f_para_k(f):
 
 
 def k_para_f(k):
-    return (k - 273.15) * (5 / 9) + 32
+    return ((k - 273.15) * 1.8) + 32
 
 
 def conversaoUnidades(valor, origem, destino):

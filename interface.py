@@ -13,8 +13,24 @@ def ler_valor(mensagem):
             valor = float(input(f"{mensagem}"))
             return valor
         except ValueError:
-            print("Digite um vallor válido!!")
+            print("Digite um valor válido!!")
             continue
+
+
+def ler_unidade(dicionario):
+
+    while True:
+        origem = input("")
+        if origem not in dicionario:
+            print("Digite uma unidade válida!!")
+            continue
+
+        destino = input("")
+        if destino not in dicionario:
+            print("Digite uma unidade válida!!")
+            continue
+
+        return origem, destino
 
 
 def menuInicial():
@@ -35,10 +51,11 @@ def ativacao(opcao):
 
 def operacaoMoeda():
     print("Escolha duas das moedas abaixo: ")
+
     for i in config.unidade_monetaria:
         print(i)
-    origem = input("")
-    destino = input("")
+
+    origem, destino = ler_unidade(config.unidade_monetaria)
 
     valor = ler_valor("Digite um valor a ser convertido: ")
 
@@ -50,7 +67,14 @@ def operacaoMoeda():
 def menuMedidas():
     print("Qual medida deseja operar: \n")
     print("1. Comprimento\n2. temperatura\n3. tempo\n4. massa")
-    opcao = int(input(""))
+
+    while True:
+        try:
+            opcao = int(input(""))
+            break
+        except ValueError:
+            print("Escolha uma opção válida!!")
+            continue
 
     if opcao == 1:
         resultado = comprimento()
@@ -71,10 +95,9 @@ def comprimento():
     for i in config.unidades_comprimento:
         print(i)
 
-    origem = input("")
-    destino = input("")
-
+    origem, destino = ler_unidade(config.unidades_comprimento)
     valor = ler_valor("Digite um valor a ser convertido: ")
+
     return engine.conversaoUnidades(
         valor, config.unidades_comprimento[origem], config.unidades_comprimento[destino]
     )
@@ -84,16 +107,22 @@ def temperatura():
     print("Escolha uma das unidades abaixo: ")
     print("C", "F", "K")
 
-    origem = input("").upper()
-    destino = input("").upper()
+    while True:
+        origem = input("").upper()
+        destino = input("").upper()
 
-    tupla = (origem, destino)
+        if (origem, destino) not in config.unidade_temperatura:
+            print("Escolha unidades válidas!!")
+            continue
 
-    valor = ler_valor("Digite um valor a ser convertido: ")
-    unidades_escolhidas = config.unidade_temperatura[tupla]
-    resultado = unidades_escolhidas(valor)
+        tupla = (origem, destino)
 
-    return resultado
+        valor = ler_valor("Digite um valor a ser convertido: ")
+
+        unidades_escolhidas = config.unidade_temperatura[tupla]
+        resultado = unidades_escolhidas(valor)
+
+        return resultado
 
 
 def tempo():
@@ -101,10 +130,9 @@ def tempo():
     for i in config.unidades_tempo:
         print(i)
 
-    origem = input("")
-    destino = input("")
-
+    origem, destino = ler_unidade(config.unidades_tempo)
     valor = ler_valor("Digite um valor a ser convertido: ")
+
     return engine.conversaoUnidades(
         valor, config.unidades_tempo[origem], config.unidades_tempo[destino]
     )
@@ -115,10 +143,9 @@ def massa():
     for i in config.unidade_massa:
         print(i)
 
-    origem = input("")
-    destino = input("")
-
+    origem, destino = ler_unidade(config.unidade_massa)
     valor = ler_valor("Digite um valor a ser convertido: ")
+
     return engine.conversaoUnidades(
         valor, config.unidade_massa[origem], config.unidade_massa[destino]
     )

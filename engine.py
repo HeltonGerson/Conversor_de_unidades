@@ -11,7 +11,7 @@ def c_para_k(c):
 
 
 def k_para_c(k):
-    return k - 273, 15
+    return k - 273.15
 
 
 def f_para_k(f):
@@ -23,8 +23,4 @@ def k_para_f(k):
 
 
 def conversaoUnidades(valor, origem, destino):
-    return valor * (origem / destino)
-
-
-def conversaoMonetaria(valor, origem, destino):
     return valor * (origem / destino)

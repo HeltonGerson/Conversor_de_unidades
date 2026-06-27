@@ -11,8 +11,14 @@ def menuInicial():
     print("O que deseja converter?")
     print("1. Moeda")
     print("2. Unidades de medidas")
+    print("0. Sair")
 
-    opcao = int(input("\n"))
+
+def ativacaoOperacao(opcao):
+
+    if opcao not in [1, 2, 0]:
+        print("Escolha uma opção válida!!")
+        return
 
     if opcao == 1:
         valor = operacaoMoeda()
@@ -30,7 +36,7 @@ def operacaoMoeda():
 
     valor = float(input("Quanto deseja converter: "))
 
-    return engine.conversaoMonetaria(
+    return engine.conversaoUnidades(
         valor, config.unidade_monetaria[origem], config.unidade_monetaria[destino]
     )
 

@@ -1,10 +1,45 @@
+import os
+
 import config
 import engine
 
 
+def limpar_tela():
+    os.system("cls" if os.name == "nt" else "clear")
+
+
+def desenhar_caixa(linhas, titulo=None, largura=40):
+    interno = largura - 2
+    if titulo is None:
+        topo = "┌" + "─" * interno + "┐"
+    else:
+        conteudo_topo = "── " + titulo + " "
+        topo = "┌" + conteudo_topo + "─" * (interno - len(conteudo_topo)) + "┐"
+
+    corpo = ["│" + linha.ljust(interno) + "│" for linha in linhas]
+    base = "└" + "─" * interno + "┘"
+
+    print("\n".join([topo, *corpo, base]))
+
+
+def pausar(mensagem="  Digite [ENTER] para voltar ao menu..."):
+    input(mensagem)
+
+
+def mostrar_resultado(texto):
+    desenhar_caixa([texto], titulo="Resultado")
+    pausar()
+
+
 def boasVindas():
-    print("Seja bem vindo!\ndigite [ENTER] para continuar...")
-    input("")
+    limpar_tela()
+    desenhar_caixa(
+        [
+            "CONVERSOR DE UNIDADES".center(38),
+            "Seja bem-vindo!".center(38),
+        ]
+    )
+    input("  Digite [ENTER] para continuar...")
 
 
 def ler_valor(mensagem):
@@ -20,12 +55,12 @@ def ler_valor(mensagem):
 def ler_unidade(dicionario):
 
     while True:
-        origem = input("Digite a origem").lower()
+        origem = input("Digite a origem: ").lower()
         if origem not in dicionario:
             print("Digite uma unidade válida!!")
             continue
 
-        destino = input("Digite o destino").lower()
+        destino = input("Digite o destino: ").lower()
         if destino not in dicionario:
             print("Digite uma unidade válida!!")
             continue
@@ -34,34 +69,41 @@ def ler_unidade(dicionario):
 
 
 def menuInicial():
-    print("O que deseja converter?")
-    print("1. Moeda")
-    print("2. Unidades de medidas")
-    print("0. Sair")
+    limpar_tela()
+    desenhar_caixa(
+        [
+            "  1. Moeda",
+            "  2. Unidades de medidas",
+            "  0. Sair",
+        ],
+        titulo="O que deseja converter?",
+    )
 
 
 def ativacao(opcao):
     if opcao == 1:
-        valor = operacaoMoeda()
-        return print(f"{valor:.2f}")
+        operacaoMoeda()
+        return
     if opcao == 2:
         return menuMedidas()
     return print("Escolha uma opção válida!!")
 
 
 def operacaoMoeda():
-    print("Escolha duas das moedas abaixo: ")
-
-    for i in config.unidade_monetaria:
-        print(i)
+    limpar_tela()
+    desenhar_caixa(
+        [f"  {i}" for i in config.unidade_monetaria],
+        titulo="Escolha duas das moedas abaixo",
+    )
 
     origem, destino = ler_unidade(config.unidade_monetaria)
 
     valor = ler_valor("Digite um valor a ser convertido: ")
 
-    return engine.conversaoUnidades(
+    resultado = engine.conversaoUnidades(
         valor, config.unidade_monetaria[origem], config.unidade_monetaria[destino]
     )
+    mostrar_resultado(f"  {valor:.2f} {origem} = {resultado:.2f} {destino}")
 
 
 def ler_opcao(mensagem):
@@ -75,8 +117,16 @@ def ler_opcao(mensagem):
 
 
 def menuMedidas():
-    print("Qual medida deseja operar: \n")
-    print("1. Comprimento\n2. temperatura\n3. tempo\n4. massa")
+    limpar_tela()
+    desenhar_caixa(
+        [
+            "  1. Comprimento",
+            "  2. Temperatura",
+            "  3. Tempo",
+            "  4. Massa",
+        ],
+        titulo="Qual medida deseja operar?",
+    )
 
     return ativacaoMenuMedidas()
 
@@ -91,35 +141,41 @@ def ativacaoMenuMedidas():
             continue
 
         if opcao == 1:
-            resultado = comprimento()
-            return print(f"{resultado:.2f}")
+            comprimento()
+            return
         if opcao == 2:
-            resultado = temperatura()
-            return print(f"{resultado:.2f}")
+            temperatura()
+            return
         if opcao == 3:
-            resultado = tempo()
-            return print(f"{resultado:.2f}")
+            tempo()
+            return
         if opcao == 4:
-            resultado = massa()
-            return print(f"{resultado:.2f}")
+            massa()
+            return
 
 
 def comprimento():
-    print("Escolha duas das unidades abaixo: ")
-    for i in config.unidade_comprimento:
-        print(i)
+    limpar_tela()
+    desenhar_caixa(
+        [f"  {i}" for i in config.unidade_comprimento],
+        titulo="Escolha duas das unidades abaixo",
+    )
 
     origem, destino = ler_unidade(config.unidade_comprimento)
     valor = ler_valor("Digite um valor a ser convertido: ")
 
-    return engine.conversaoUnidades(
+    resultado = engine.conversaoUnidades(
         valor, config.unidade_comprimento[origem], config.unidade_comprimento[destino]
     )
+    mostrar_resultado(f"  {valor:.2f} {origem} = {resultado:.2f} {destino}")
 
 
 def temperatura():
-    print("Escolha uma das unidades abaixo: ")
-    print("c\nf\nk")
+    limpar_tela()
+    desenhar_caixa(
+        ["  c", "  f", "  k"],
+        titulo="Escolha duas das unidades abaixo",
+    )
 
     while True:
         origem = input("Digite a origem").lower()
@@ -131,33 +187,38 @@ def temperatura():
 
         valor = ler_valor("Digite um valor a ser convertido: ")
 
-        unidades_escolhidas = config.unidade_temperatura[(origem, destino)]
-        resultado = unidades_escolhidas(valor)
-
-        return resultado
+        resultado = config.unidade_temperatura[(origem, destino)](valor)
+        mostrar_resultado(f"  {valor:.2f} {origem} = {resultado:.2f} {destino}")
+        return
 
 
 def tempo():
-    print("Escolha uma das unidades abaixo: ")
-    for i in config.unidade_tempo:
-        print(i)
+    limpar_tela()
+    desenhar_caixa(
+        [f"  {i}" for i in config.unidade_tempo],
+        titulo="Escolha duas das unidades abaixo",
+    )
 
     origem, destino = ler_unidade(config.unidade_tempo)
     valor = ler_valor("Digite um valor a ser convertido: ")
 
-    return engine.conversaoUnidades(
+    resultado = engine.conversaoUnidades(
         valor, config.unidade_tempo[origem], config.unidade_tempo[destino]
     )
+    mostrar_resultado(f"  {valor:.2f} {origem} = {resultado:.2f} {destino}")
 
 
 def massa():
-    print("Escolha uma das unidades abaixo: ")
-    for i in config.unidade_massa:
-        print(i)
+    limpar_tela()
+    desenhar_caixa(
+        [f"  {i}" for i in config.unidade_massa],
+        titulo="Escolha duas das unidades abaixo",
+    )
 
     origem, destino = ler_unidade(config.unidade_massa)
     valor = ler_valor("Digite um valor a ser convertido: ")
 
-    return engine.conversaoUnidades(
+    resultado = engine.conversaoUnidades(
         valor, config.unidade_massa[origem], config.unidade_massa[destino]
     )
+    mostrar_resultado(f"  {valor:.2f} {origem} = {resultado:.2f} {destino}")

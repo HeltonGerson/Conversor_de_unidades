@@ -1,6 +1,6 @@
 import engine
 
-unidades_comprimento = {
+unidade_comprimento = {
     # Unidade base: metros
     "km": 1000.0,
     "m": 1.0,
@@ -25,7 +25,7 @@ unidade_temperatura = {
     ("F", "K"): engine.f_para_k,
     ("K", "F"): engine.k_para_f,
 }
-unidades_tempo = {
+unidade_tempo = {
     # unidade base: horas
     "dias": 24,
     "hr": 1,

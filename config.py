@@ -35,8 +35,8 @@ unidade_tempo = {
 
 unidade_monetaria = {
     # moeda base: dólar
-    "dólar": 1.00,
+    "dolar": 1.00,
     "real": 0.19,
-    "Euro": 1.13,
+    "euro": 1.13,
     "yuan": 0.14,
 }

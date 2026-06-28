@@ -20,12 +20,12 @@ def ler_valor(mensagem):
 def ler_unidade(dicionario):
 
     while True:
-        origem = input("")
+        origem = input("").lower()
         if origem not in dicionario:
             print("Digite uma unidade válida!!")
             continue
 
-        destino = input("")
+        destino = input("").lower()
         if destino not in dicionario:
             print("Digite uma unidade válida!!")
             continue
@@ -119,7 +119,7 @@ def comprimento():
 
 def temperatura():
     print("Escolha uma das unidades abaixo: ")
-    print("C", "F", "K")
+    print("C\nF\nK")
 
     while True:
         origem = input("Digite a origem").upper()

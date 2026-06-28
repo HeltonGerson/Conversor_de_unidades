@@ -14,7 +14,7 @@ O conversor métrico oferece suporte para a grande maioria das unidades de medid
 
 ### 2. Módulo Monetário
 Conversão dinâmica de valores entre diferentes moedas globais.
-* **Tempo Real:** Atualização automática das taxas de câmbio para garantir precisão financeira.
+* **Tempo Real (não implementado):** Atualização automática das taxas de câmbio para garantir precisão financeira.
 * **Praticidade:** Interface direta que solicita a moeda de origem, a moeda de destino e o valor.
 
 ---

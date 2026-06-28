@@ -178,8 +178,8 @@ def temperatura():
     )
 
     while True:
-        origem = input("Digite a origem").lower()
-        destino = input("Digite o destino").lower()
+        origem = input("Digite a origem: ").lower()
+        destino = input("Digite o destino: ").lower()
 
         if (origem, destino) not in config.unidade_temperatura:
             print("Digite unidades válidas!!")

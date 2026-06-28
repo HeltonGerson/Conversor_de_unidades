@@ -1,18 +1,24 @@
 import interface
 
-interface.boasVindas()
 
-while True:
-    interface.menuInicial()
+def main():
+    interface.boasVindas()
 
-    try:
-        opcao = int(input("Escolha uma das opções acima: "))
-    except ValueError:
-        print("Digite uma opção válida!!")
-        continue
+    while True:
+        interface.menuInicial()
 
-    if opcao == 0:
-        print("Encerrando...")
-        break
+        try:
+            opcao = int(input("Escolha uma das opções acima: "))
+        except ValueError:
+            print("Escolha uma opção válida!!")
+            continue
 
-    interface.ativacao(opcao)
+        if opcao == 0:
+            print("Encerrando...")
+            break
+
+        interface.ativacao(opcao)
+
+
+if __name__ == "__main__":
+    main()

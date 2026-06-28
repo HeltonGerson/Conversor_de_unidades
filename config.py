@@ -16,14 +16,14 @@ unidade_massa = {
 }
 unidade_temperatura = {
     # C e F
-    ("C", "F"): engine.c_para_f,
-    ("F", "C"): engine.f_para_c,
+    ("c", "f"): engine.c_para_f,
+    ("f", "c"): engine.f_para_c,
     # K e C
-    ("C", "K"): engine.c_para_k,
-    ("K", "C"): engine.k_para_c,
+    ("c", "k"): engine.c_para_k,
+    ("k", "c"): engine.k_para_c,
     # F e K
-    ("F", "K"): engine.f_para_k,
-    ("K", "F"): engine.k_para_f,
+    ("f", "k"): engine.f_para_k,
+    ("k", "f"): engine.k_para_f,
 }
 unidade_tempo = {
     # unidade base: horas
@@ -35,7 +35,7 @@ unidade_tempo = {
 
 unidade_monetaria = {
     # moeda base: dólar
-    "dolar": 1.00,
+    "dólar": 1.00,
     "real": 0.19,
     "euro": 1.13,
     "yuan": 0.14,

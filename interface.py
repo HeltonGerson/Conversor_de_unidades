@@ -20,12 +20,12 @@ def ler_valor(mensagem):
 def ler_unidade(dicionario):
 
     while True:
-        origem = input("").lower()
+        origem = input("Digite a origem").lower()
         if origem not in dicionario:
             print("Digite uma unidade válida!!")
             continue
 
-        destino = input("").lower()
+        destino = input("Digite o destino").lower()
         if destino not in dicionario:
             print("Digite uma unidade válida!!")
             continue
@@ -46,7 +46,7 @@ def ativacao(opcao):
         return print(f"{valor:.2f}")
     if opcao == 2:
         return menuMedidas()
-    return print("Digite uma opção válida!!")
+    return print("Escolha uma opção válida!!")
 
 
 def operacaoMoeda():
@@ -119,14 +119,14 @@ def comprimento():
 
 def temperatura():
     print("Escolha uma das unidades abaixo: ")
-    print("C\nF\nK")
+    print("c\nf\nk")
 
     while True:
-        origem = input("Digite a origem").upper()
-        destino = input("Digite o destino").upper()
+        origem = input("Digite a origem").lower()
+        destino = input("Digite o destino").lower()
 
         if (origem, destino) not in config.unidade_temperatura:
-            print("Escolha unidades válidas!!")
+            print("Digite unidades válidas!!")
             continue
 
         valor = ler_valor("Digite um valor a ser convertido: ")
